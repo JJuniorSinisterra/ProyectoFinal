@@ -1,0 +1,14 @@
+.zoom{
+    transition: transform .2s;
+}
+
+.zoom:hover{
+  transform: scale(1.5);
+}
+
+
+.post-habitacion {
+    background-image: url('../../../assets/img/bg_1.jpg');
+    background-position: center center;
+    background-size: cover;
+}

@@ -1,0 +1,35 @@
+<div class="post-habitacion">
+    <app-navbar></app-navbar>
+    <div class="container-fluid text-center">
+      <main class="my-5">
+        <div class="container">
+          <section class="text-center">
+            <h4 class="mb-5" ><strong>Post Habitaciones</strong></h4>
+            <hr class="featurette-divider">
+
+            <div class="row " >
+              <div class="col-lg-4 col-md-12 mb-4" *ngFor="let habitacion of habitaciones">
+                <div class="card  h-100">
+                  <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <div class="card-body">
+                      <h5 class="card-title-center">{{habitacion.hotelHabitacion}}</h5>
+                    </div>
+                    <img [src]=" habitacion.imgURL" alt="" with="150" height="190" class="zoom " >
+
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title-center ">Tipo: {{habitacion.tipoHabitacion}}</h5>
+                    <h5 class="card-title-center">Precio: {{habitacion.precioHabitacion}}</h5>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+  </div>
+
+  <app-footer></app-footer>

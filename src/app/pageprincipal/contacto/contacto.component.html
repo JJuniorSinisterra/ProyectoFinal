@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="contacto">
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <i class="fa fa-envelope"></i> Contacta con nosotros
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="registrarContacto()" [formGroup]="contactoForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" formControlName="nombre"  placeholder="Nombre Completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" formControlName="correo"  placeholder="Correo  Electronico" required>
+                            <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
+                        </div>
+                        <div class="form-group">
+                            <textarea type="text"class="form-control" formControlName="mensaje" rows="6" placeholder="Mensaje....." required></textarea>
+                        </div>
+                        <div class="mx-auto">
+                            <button type="submit" class="btn btn-primary" [disabled]="contactoForm.invalid" >Enviar</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-5">
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-success text-white text-uppercase"><i class="fa fa-home"></i>Dirección</div>
+                <div class="card-body">
+                    <p>Universidad del Pacifico</p>
+                    <p>Valle del cauca</p>
+                    <p>Buenaventura</p>
+                    <p>Email : email@example.com</p>
+                    <p>Tel. +57 32034234923</p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+  </div>
+  <br><br><br><br>
+
+</div>
+
+<app-footer></app-footer>

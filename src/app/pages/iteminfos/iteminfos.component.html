@@ -1,0 +1,69 @@
+<div class="container">
+    <button type="button" (click)="limpiarForm()" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"> <i
+        class="fa fa-plus"></i> Agregar</button>
+    <table class="table">
+    <thead class="thead-dark">
+       <tr>
+          <th scope="col">Imagen</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Texto</th>
+          <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of iteminfos">
+        <td><img [src]="item.imgURL" alt="" width="100" class="zoom"></td>
+        <td>{{item.tituloItem}}</td>
+        <td>{{item.textoItem}}</td>
+        <td>
+           <button class="btn btn-danger btn-sm" (click)="eliminar(item.id, item.tituloItem)"><i class="fa fa-trash"></i></button>
+        </td>
+     </tr>
+
+    </tbody>
+  </table>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <h5 class="modal-title"><i class="fa-h-square"></i> Agregar Item</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form (ngSubmit)="registrarIteminfo()" [formGroup]="iteminfoForm">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" formControlName="titulo" placeholder="Titulo" >
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control"formControlName="texto" placeholder="Texto" >
+                </div>
+                <div class="input-group mb-3">
+                    <select name="hotel" class="form-control" formControlName="lado">
+                      <option >---Seleccione en que lado---</option>
+                      <option value="">Derecho</option>
+                      <option value="order-md-2">Izquierdo</option>
+                    </select>
+      
+                </div>
+                <div class="form-group">
+                    <input type="file" class="form-control-file" formControlName="imagen" accept="image/*" (change)="selectChange($event)" required="imgURL"><br>
+
+                    <img [src]="imgURL" with="400" height="200" >
+
+                </div>
+
+
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" >Save changes</button>
+                </div>
+            </form>
+        </div>
+
+      </div>
+    </div>
+  </div>

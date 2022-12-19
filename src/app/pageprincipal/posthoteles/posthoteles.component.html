@@ -1,0 +1,37 @@
+<div class="post-hotel">
+  <app-navbar></app-navbar>
+  <div class="container-fluid text-center">
+    <main class="my-5">
+      <div class="container">
+        <section class="text-center">
+          <h4 class="mb-5"><strong>Post Hoteles</strong></h4>
+          <hr class="featurette-divider">
+
+          <div class="row ">
+            <div class="col-lg-4 col-md-12 mb-4"*ngFor="let hotel of hoteles">
+              <div class="card  h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                  <div class="card-body">
+                    <h5 class="card-title-center">{{hotel.nomHotel}}</h5>
+                  </div>
+                  <img [src]="hotel.imgURL" alt="" with="150" height="190" class="zoom " >
+                </div>
+                <div class="card-body" >
+                  <h5 class="card-title-center">Direccion: {{hotel.direccionHotel}}</h5>
+                  <h5 class="card-title-center">Categoria: {{hotel.estrellasHotel}}</h5>
+                  <div *ngFor="let habitacion of habitaciones">
+                    <a  class="btn btn-primary" *ngIf="hotel.nomHotel == habitacion.hotelHabitacion " routerLink="/habitaciones" >Ver Habitaciones</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

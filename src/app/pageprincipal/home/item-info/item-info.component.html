@@ -1,0 +1,15 @@
+<div class="container categorias" *ngFor="let item of iteminfos">
+    <div class="row featurette">
+      <div class="col-md-7 {{item.tituloItem}}">
+        <h2 class="featurette-heading">{{item.tituloItem}} </h2>
+        <p class="lead">{{item.textoItem}}</p>
+      </div>
+      <div class="col-md-5">
+        <img [src]="item.imgURL" data-src="holder.js/500x500/auto" alt="500x500"  data-holder-rendered="true" style="width: 500px; height: 500px;">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+
+  </div>

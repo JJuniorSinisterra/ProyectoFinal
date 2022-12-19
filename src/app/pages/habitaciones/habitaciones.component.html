@@ -1,0 +1,77 @@
+<div class="container">
+  <button type="button" (click)="limpiarForm()" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal"> <i
+      class="fa fa-plus"></i> Agregar</button>
+  <table class="table">
+  <thead class="thead-dark">
+     <tr>
+        <th scope="col">Imagen</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Hotel</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Acciones</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let habitacion of habitaciones">
+      <td><img [src]="habitacion.imgURL" alt="" width="100" class="zoom"></td>
+      <td>{{habitacion.tipoHabitacion}}</td>
+      <td>{{habitacion.hotelHabitacion}}</td>
+      <td>{{habitacion.precioHabitacion}}</td>
+      <td>
+         <button class="btn btn-danger btn-sm" (click)="eliminar(habitacion.id, habitacion.tipoHabitacion)"><i class="fa fa-trash"></i></button>
+      </td>
+   </tr>
+
+  </tbody>
+</table>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title"><i class="fa-h-square"></i> Agregar Habitacion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="registrarHabitacion()" [formGroup]="habitacionForm">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" formControlName="tipo" placeholder="Tipo Habitacion" required>
+          </div>
+          <div class="input-group mb-3">
+            <input type="number" class="form-control"formControlName="precio" placeholder="Precio Habitacion" required>
+          </div>
+          <div class="input-group mb-3">
+              <select name="hotel" class="form-control" formControlName="hotel">
+                <option >---Seleccione Hotel---</option>
+                <option *ngFor=" let hotel of hoteles">
+                  {{hotel.nomHotel}}
+                </option>
+              </select>
+
+          </div>
+          <div class="form-group">
+
+            <input type="file" class="form-control-file" accept="image/*" (change)="selectChange($event)"><br>
+
+            <img [src]="imgURL" with="100" height="100">
+
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" [disabled]="habitacionForm.invalid" >Save changes</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
